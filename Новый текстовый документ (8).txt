@@ -1,0 +1,65 @@
+CREATE DATABASE Avtozapravka;
+Use Avtozapravka;
+CREATE TABLE Prodavec (Prodavec_id int not null primary key, FIO VARCHAR(255) not null, City VARCHAR(255) not null, Procent int(255) not null);
+CREATE TABLE Pokupatel (Pokupatel_id int not null primary key, FIO VARCHAR(255) not null, City VARCHAR(255) not null);
+CREATE TABLE Postavshik (Postavshik_id int not null primary key, Name VARCHAR(255) not null, Country VARCHAR(255) not null);
+CREATE TABLE Toplivo (Toplivo_id int not null primary key, TipTopliva VARCHAR(255) not null, Cena int(255) not null, Postavshik_id int, FOREIGN KEY (Postavshik_id) REFERENCES Postavshik (Postavshik_id));
+CREATE TABLE Prodaji (Prodaji_id int not null primary key, Prodavec_id int, FOREIGN KEY (Prodavec_id) REFERENCES Prodavec (Prodavec_id), Pokupatel_id int, FOREIGN KEY (Pokupatel_id) REFERENCES Pokupatel (Pokupatel_id), Toplivo_id int, FOREIGN KEY (Toplivo_id) REFERENCES Toplivo (Toplivo_id), Cena int(255) not null);
+
+INSERT INTO Prodavec values(1, "Larry Eichenberger", "Brentwood", 24);
+INSERT INTO Prodavec values(2, "Camila Uoy", "Worceste", 65);
+INSERT INTO Prodavec values(3, "Sloan Sanderfer", "Greenfield", 25);
+INSERT INTO Prodavec values(4, "Adan Kaupu", "Murray", 19);
+INSERT INTO Prodavec values(5, "Dash Havercroft", "Orland Park", 54);
+INSERT INTO Prodavec values(6, "Liberty Meisenheimer", "Alpharetta", 14);
+INSERT INTO Prodavec values(7, "Rhea Vanheusen", "Margate", 84);
+INSERT INTO Prodavec values(8, "Luciano Lamarsh", "Coral Gables", 53);
+INSERT INTO Prodavec values(9, "Azariah Biles", "Livonia", 34);
+INSERT INTO Prodavec values(10, "Noa Gregory", "Bossier City", 67);
+
+INSERT INTO Pokupatel values(1, "Van Darkholme", "Dungeon");
+INSERT INTO Pokupatel values(2, "Billy Herrington", "California");
+INSERT INTO Pokupatel values(3, "Sky Winstead", "Coeur d'Alene");
+INSERT INTO Pokupatel values(4, "Elaine Macpherson", "Houston");
+INSERT INTO Pokupatel values(5, "King Prejsnar", "Poway");
+INSERT INTO Pokupatel values(6, "Urijah Bhakta", "Topeka");
+INSERT INTO Pokupatel values(7, "Landen Banchero", "Kent");
+INSERT INTO Pokupatel values(8, "Boone Abington", "Pico Rivera");
+INSERT INTO Pokupatel values(9, "Amina Lairsey", "Greensboro");
+INSERT INTO Pokupatel values(10, "Madalynn Bledsaw", "Lehi");
+
+INSERT INTO Postavshik values(1, "Zetaguen", "Germany");
+INSERT INTO Postavshik values(2, "Kuyuscan", "Japan");
+INSERT INTO Postavshik values(3, "Varsolutio", "France");
+INSERT INTO Postavshik values(4, "Milesensely Energy", "USA");
+INSERT INTO Postavshik values(5, "Brimble Parts", "England");
+INSERT INTO Postavshik values(6, "Motor Aces", "USA");
+INSERT INTO Postavshik values(7, "Optacci", "Finland");
+INSERT INTO Postavshik values(8, "Agry Diesel", "Russia");
+INSERT INTO Postavshik values(9, "Posa Cars", "China");
+INSERT INTO Postavshik values(10, "Eastcab Nation Auto", "Denmark");
+
+INSERT INTO Toplivo values(1, "Gasoline", 25, 1);
+INSERT INTO Toplivo values(2, "Aviation turbine kerosene", 53, 2);
+INSERT INTO Toplivo values(3, "Clear petrol", 14, 3);
+INSERT INTO Toplivo values(4, "Gasohol", 44, 4);
+INSERT INTO Toplivo values(5, "Leaded gasoline", 12, 5);
+INSERT INTO Toplivo values(6, "Motor Aces", 64, 6);
+INSERT INTO Toplivo values(7, "Optacci", 12, 7);
+INSERT INTO Toplivo values(8, "Agry Diesel", 86, 8);
+INSERT INTO Toplivo values(9, "Gaseous fuel", 47, 9);
+INSERT INTO Toplivo values(10, "Kerosene", 43, 10);
+
+
+INSERT INTO Prodaji values(1, 1, 1, 1, 45);
+INSERT INTO Prodaji values(2, 2, 2, 2, 12);
+INSERT INTO Prodaji values(3, 3, 3, 3, 56);
+INSERT INTO Prodaji values(4, 4, 4, 4, 64);
+INSERT INTO Prodaji values(5, 5, 5, 5, 75);
+INSERT INTO Prodaji values(6, 6, 6, 6, 35);
+INSERT INTO Prodaji values(7, 7, 7, 7, 98);
+INSERT INTO Prodaji values(8, 8, 8, 8, 56);
+INSERT INTO Prodaji values(9, 9, 9, 9, 78);
+INSERT INTO Prodaji values(10, 10, 10, 10, 43);
+
+
